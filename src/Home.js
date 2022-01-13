@@ -1,10 +1,12 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
+import Header from "./Header";
 
 function Home() {
   return (
     <div>
+      <Header />
       <div className="home">
         <div className="home__container">
           <img
