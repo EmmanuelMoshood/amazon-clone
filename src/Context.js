@@ -11,7 +11,7 @@ export const UseBasketContext = () => {
 
 // setup a provider wrapper with a variable called basket
 export const MyContextProvider = ({ children }) => {
-  const [basket, setBasket] = useState();
+  const [basket, setBasket] = useState([]);
 
   const allObj = {
     basket,

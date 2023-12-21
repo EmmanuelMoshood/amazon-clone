@@ -2,8 +2,11 @@ import React from "react";
 import "./Checkout.css";
 import Header from "./Header";
 import CheckoutProduct from "./CheckoutProduct";
+import { UseBasketContext } from "./Context";
+import Subtotal from "./Subtotal.js";
 
 function Checkout() {
+  const { basket } = UseBasketContext();
   return (
     <div>
       <Header />
@@ -16,15 +19,13 @@ function Checkout() {
             className="checkout__ad"
           />
           <h2 className="checkout__title">Your Shopping Basket</h2>
-          <CheckoutProduct
-            id="123451"
-            title="Meta Quest 2 — Advanced All-In-One Virtual Reality Headset 128 GB"
-            price={689.96}
-            rating={3}
-            image="https://m.media-amazon.com/images/I/61GhF+JUXGL._AC_SX342_SY445_.jpg"
-          />
+          {basket.map((item) => (
+            <CheckoutProduct product={item} />
+          ))}
         </div>
-        <div className="checkout__right"></div>
+        <div className="checkout__right">
+          <Subtotal />
+        </div>
       </div>
     </div>
   );

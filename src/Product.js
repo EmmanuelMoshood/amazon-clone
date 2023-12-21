@@ -1,13 +1,19 @@
 import React from "react";
 import "./Product.css";
+import { UseBasketContext } from "./Context";
 
 function Product({ product }) {
+  const { basket, setBasket } = UseBasketContext();
+
+  function addToCart() {
+    setBasket([...basket, product]);
+  }
+
   return (
     <div className="product">
       <div className="product__info">
         <p>{product.title}</p>
         <p className="product__price">
-          <small>$</small>
           <strong>{product.price}</strong>
         </p>
         <div className="product__rating">
@@ -20,7 +26,7 @@ function Product({ product }) {
       </div>
       <img src={product.image} alt="productimage" className="product__image" />
 
-      <button>Add to Basket</button>
+      <button onClick={addToCart}>Add to Basket</button>
     </div>
   );
 }

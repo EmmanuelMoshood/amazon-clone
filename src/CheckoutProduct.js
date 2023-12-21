@@ -1,28 +1,28 @@
 import React from "react";
 import "./CheckoutProduct.css";
 
-function CheckoutProduct({ id, title, price, rating, image }) {
+function CheckoutProduct({ product }) {
   return (
     <div className="checkoutProduct">
       <img
-        src={image}
+        src={product.image}
         alt="checkoutProductImage"
         className="checkoutProduct__image"
       />
       <div className="checkoutProduct__info">
-        <p className="checkoutProduct__title">{title}</p>
+        <p className="checkoutProduct__title">{product.title}</p>
         <p className="checkoutProduct__price">
           <small>$</small>
-          <strong>{price}</strong>
+          <strong>{product.price}</strong>
         </p>
         <div className="checkoutProduct__rating">
-          {Array(rating)
+          {Array(product.rating)
             .fill()
             .map(() => (
               <p>⭐</p>
             ))}
         </div>
-        <button>Add to Basket</button>
+        <button>Remove from Basket</button>
       </div>
     </div>
   );

@@ -5,8 +5,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import { Link } from "react-router-dom";
+import { UseBasketContext } from "./Context";
 
 function Header() {
+  const { basket } = UseBasketContext();
   return (
     <div className="header">
       <Link to="/" style={{ textDecoration: "none" }}>
@@ -36,7 +38,9 @@ function Header() {
         <Link to="/checkout" style={{ textDecoration: "none" }}>
           <div className="nav__itemBasket">
             <LocalGroceryStoreOutlinedIcon className="" />
-            <div className="nav__secBtm nav__basketCount">0</div>
+            <div className="nav__secBtm nav__basketCount">
+              {basket?.length || "0"}
+            </div>
           </div>
         </Link>
       </div>
