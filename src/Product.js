@@ -7,6 +7,7 @@ function Product({ product }) {
 
   function addToCart() {
     setBasket([...basket, product]);
+    console.log(basket);
   }
 
   return (
