@@ -2,39 +2,40 @@ import React, { useState } from "react";
 import "./Login.css";
 import {
   Link,
-  //  useHistory
+  // useNavigate
 } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-// import { auth } from "./firebase";
+import { auth } from "./firebase";
 
 function Login() {
-  //   const history = useHistory();
+  const history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //   const signIn = (e) => {
-  //     e.preventDefault();
+  const signIn = (e) => {
+    e.preventDefault();
 
-  //     auth
-  //       .signInWithEmailAndPassword(email, password)
-  //       .then((auth) => {
-  //         history.push("/");
-  //       })
-  //       .catch((error) => alert(error.message));
-  //   };
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
+  };
 
-  //   const register = (e) => {
-  //     e.preventDefault();
+  const register = (e) => {
+    e.preventDefault();
 
-  //     auth
-  //       .createUserWithEmailAndPassword(email, password)
-  //       .then((auth) => {
-  //         if (auth) {
-  //           history.push("/");
-  //         }
-  //       })
-  //       .catch((error) => alert(error.message));
-  //   };
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        if (auth) {
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <div className="login">
@@ -66,7 +67,7 @@ function Login() {
           <button
             type="submit"
             className="login__signInButton"
-            // onClick={signIn}
+            onClick={signIn}
           >
             Sign In
           </button>
@@ -78,10 +79,7 @@ function Login() {
           Interest-Based Ads Notice.
         </p>
 
-        <button
-          className="login__registerButton"
-          //  onClick={register}
-        >
+        <button className="login__registerButton" onClick={register}>
           Create your eShop Account
         </button>
       </div>

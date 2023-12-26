@@ -25,15 +25,20 @@ function Header() {
 
       <div className="header__nav">
         {/* nav signin  */}
-        <div className="nav__sec">
-          <span className="nav__secTop">Hello Joe</span>
-          <span className="nav__secBtm">Sign In</span>
-        </div>
+
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <div className="nav__sec">
+            <span className="nav__secTop">Hello Joe</span>
+            <span className="nav__secBtm">Sign In</span>
+          </div>
+        </Link>
         {/* nav shop */}
+
         <div className="nav__sec">
           <span className="nav__secTop">Your</span>
           <span className="nav__secBtm">Shop</span>
         </div>
+
         {/* nav for basket */}
         <Link to="/checkout" style={{ textDecoration: "none" }}>
           <div className="nav__itemBasket">
